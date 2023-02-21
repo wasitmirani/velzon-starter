@@ -1,1 +1,1 @@
-@extends('master')
+@extends('layouts.backend.master')
