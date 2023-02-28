@@ -27,7 +27,7 @@ const setRoute= async (url:string,name:string,path:string)=>{
         redirect: { name: 'dashboard' }
     },
     {
-        path: "/dashboard",
+        path: "/portal/dashboard",
         name:"dashboard",
         component:Dashboard,
 

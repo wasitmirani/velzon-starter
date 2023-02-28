@@ -62,35 +62,19 @@ class HelperComponent
                 "icon" => "link",
                 'type' => 'multi',
                 "sub_menu" => [
-
-
                     setSubMenu(
                         "Package",
                         null,
                         "packages-list-view",
                         "/packages",
                     ),
-
-
                 ],
-
-
-
-
             ],
-
             [
                 "heading" => "Tools",
                 "heading_can" => "tools-heading-view",
-
             ],
-
-
-
             setSingleLink("Settings", "settings", "settings-view", "/settings"),
-
-
-
 
         ];
     }

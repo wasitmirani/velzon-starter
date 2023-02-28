@@ -9,8 +9,12 @@
 
 import axios from 'axios';
 
-
+window.axios = axios;
+// user ? user.token : null;
+const token= null;
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.axios.defaults.headers.common['Authorization'] = `Bearer `+token ;
+window.axios.defaults.baseURL = window.location.origin + "/api/";
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
@@ -33,3 +37,7 @@ axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     forceTLS: (import.meta.env.VITE_PUSHER_SCHEME ?? 'https') === 'https',
 //     enabledTransports: ['ws', 'wss'],
 // });
+
+
+
+

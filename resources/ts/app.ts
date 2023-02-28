@@ -1,7 +1,11 @@
+
 import { createApp } from "vue";
 import './registerServiceWorker'
+import "./bootstrap";
+
 import App from "./vue/App.vue";
 import router from "./router";
+
 // const app =createApp({
 //     components:{App}
 //     methods:{
