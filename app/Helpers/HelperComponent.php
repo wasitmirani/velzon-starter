@@ -14,7 +14,35 @@ class HelperComponent
                 "heading" => "Analytics",
                 "heading_can" => "analytics-heading-view",
             ],
-            setSingleLink("Dashboard", "home", "dashboard-view", "/dashboard"),
+            [
+
+                "title" => 'Dashboards',
+                'can' => 'dropdown-dashboards',
+                "icon" => "users",
+                'type' => 'multi',
+                "sub_menu" => [
+                    setSubMenu(
+                        "Users",
+                        null,
+                        "users-list",
+                        "/users",
+                    ),
+                    setSubMenu(
+                        "Roles",
+                        null,
+                        "roles-list",
+                        "/roles",
+                    ),
+                    setSubMenu(
+                        "Permissions",
+                        null,
+                        "permissions-list",
+                        "/permissions",
+                    ),
+
+                ]
+
+            ],
             [
                 "heading" => "Management",
                 "heading_can" => "management-heading-view",

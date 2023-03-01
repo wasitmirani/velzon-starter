@@ -31,4 +31,4 @@ Route::get('/', function () {
 
 // require __DIR__.'/auth.php';
 
-Route::get('/portal/{any?}', [BackendController::class, 'index']);
+Route::get('/portal/{any?}/{path?}', [BackendController::class, 'index']);

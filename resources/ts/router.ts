@@ -2,17 +2,15 @@ import {createRouter,createWebHistory,RouteRecordRaw,} from "vue-router";
 import Dashboard from "./vue/backend/pages/dashboard/DashboardComponent.vue";
 
 
-// let getComponent= async (file_name:any)=>{
-//     const path='./vue/backend/pages/'+file_name+'Component.vue';
-//     const route=await  import(path);
-//     return route;
-//   }
+const getComponent=  (file_name:string)=> {
+    return   import(`./vue/backend/pages/${file_name}Component.vue`)
+  }
 const prefix="/portal";
-const setRoute= async (url:string,name:string,path:string)=>{
+const setRoute=  (url:string,name:string,path:string)=>{
     return {
       path: prefix+url,
       name: name,
-      component:Dashboard,
+      component: () =>  getComponent(path),
 
     }
   }
@@ -26,14 +24,10 @@ const setRoute= async (url:string,name:string,path:string)=>{
         path: "/",
         redirect: { name: 'dashboard' }
     },
-    {
-        path: "/portal/dashboard",
-        name:"dashboard",
-        component:Dashboard,
+    setRoute('/:catchAll(.*)','404','error/404'),
+    setRoute("/dashboard","dashboard","dashboard/Dashboard"),
 
-    },
-    // setRoute('/:catchAll(.*)','404','error/404'),
-    // setRoute('/dashboard','dashboard','dashboard/Dashboard'),
+
 
 ];
 
