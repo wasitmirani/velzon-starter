@@ -748,6 +748,29 @@
 
     <!--Swiper slider js-->
     <script src="{{asset('assets/libs/swiper/swiper-bundle.min.js')}}"></script>
+    <script>
+
+        @if(session('login')=="true" || session('login')==true)
+        setTimeout(function() {
+        // toastr['success'](
+        // 'You have successfully logged in to {{config('app.name')}}.',
+        // '👋 Welcome {{Auth::user()->name}}', {
+        //     closeButton: true,
+        //      tapToDismiss: false
+        // });
+        }, 1000);
+        @php
+        session(['login' => '']);
+        @endphp
+        @endif
+            @php
+             $sidebar_menu=sideBarMenu();
+             $sidebar_menu=collect($sidebar_menu)->values();
+            @endphp
+        let menu ='{!! $sidebar_menu !!}';
+        localStorage.removeItem('menu_list')
+        localStorage.setItem('menu_list', JSON.stringify(menu));
+      </script>
 
     <!-- Dashboard init -->
     <script src="{{asset('assets/js/pages/dashboard-ecommerce.init.js')}}"></script>

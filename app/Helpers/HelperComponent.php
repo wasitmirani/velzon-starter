@@ -18,27 +18,17 @@ class HelperComponent
 
                 "title" => 'Dashboards',
                 'can' => 'dropdown-dashboards',
-                "icon" => "users",
+                "icon" => "mdi-speedometer",
                 'type' => 'multi',
                 "sub_menu" => [
                     setSubMenu(
-                        "Users",
+                        "Overview",
                         null,
-                        "users-list",
-                        "/users",
+                        "dashboard-overview",
+                        "/dashboard/overview",
                     ),
-                    setSubMenu(
-                        "Roles",
-                        null,
-                        "roles-list",
-                        "/roles",
-                    ),
-                    setSubMenu(
-                        "Permissions",
-                        null,
-                        "permissions-list",
-                        "/permissions",
-                    ),
+
+
 
                 ]
 
@@ -51,26 +41,26 @@ class HelperComponent
             [
 
                 "title" => 'User Management',
-                'can' => 'user-management-dropdown',
-                "icon" => "users",
+                'can' => 'dropdown-usersmanagement',
+                "icon" => "mdi-account-group-outline",
                 'type' => 'multi',
                 "sub_menu" => [
                     setSubMenu(
                         "Users",
                         null,
-                        "users-list",
+                        "users-read",
                         "/users",
                     ),
                     setSubMenu(
                         "Roles",
                         null,
-                        "roles-list",
+                        "roles-read",
                         "/roles",
                     ),
                     setSubMenu(
                         "Permissions",
                         null,
-                        "permissions-list",
+                        "permissions-read",
                         "/permissions",
                     ),
 

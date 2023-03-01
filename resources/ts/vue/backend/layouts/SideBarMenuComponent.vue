@@ -3,23 +3,23 @@
         <!-- LOGO -->
         <div class="navbar-brand-box">
             <!-- Dark Logo-->
-            <a href="index.html" class="logo logo-dark">
+            <router-link to="/"  class="logo logo-dark">
                 <span class="logo-sm">
-                    <img src="assets/images/logo-sm.png" alt="" height="22">
+                    <img src="/assets/images/logo-sm.png" alt="" height="22">
                 </span>
                 <span class="logo-lg">
-                    <img src="assets/images/logo-dark.png" alt="" height="17">
+                    <img src="/assets/images/logo-dark.png" alt="" height="17">
                 </span>
-            </a>
+            </router-link >
             <!-- Light Logo-->
-            <a href="index.html" class="logo logo-light">
+            <router-link to="/" class="logo logo-light">
                 <span class="logo-sm">
-                    <img src="assets/images/logo-sm.png" alt="" height="22">
+                    <img src="/assets/images/logo-sm.png" alt="" height="22">
                 </span>
                 <span class="logo-lg">
                     <img src="assets/images/logo-light.png" alt="" height="17">
                 </span>
-            </a>
+            </router-link>
             <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
                 id="vertical-hover">
                 <i class="ri-record-circle-line"></i>
@@ -39,13 +39,14 @@
 
                         <router-link class="nav-link" v-if="item.type == 'single_link' && isAllowed(item.can)"
                             :to="item.route">
-                            <i class="mdi mdi-puzzle-outline"></i>
+                            <i :class="`mdi ${item.icon} `"></i>
                             <span :data-key="`t-${item.title}`">{{ item.title }}</span>
                         </router-link>
                         <a class="nav-link menu-link" v-if="item.type == 'multi' && isAllowed(item.can)"
                             :href="`#sidebar${item.can}`" data-bs-toggle="collapse" role="button" aria-expanded="false"
                             :aria-controls="`sidebar${item.can}`">
-                            <i class="mdi mdi-speedometer"></i>
+                            <!-- <i class="mdi mdi-speedometer"></i> -->
+                            <i :class="`mdi ${item.icon} `"></i>
                             <span :data-key="`t-${item.can}`">{{ item.title }}
                             </span>
                         </a>
@@ -72,52 +73,11 @@
     <div class="vertical-overlay"></div>
 </template>
 <script>
+import menu from "./menu";
 export default {
     data() {
         return {
-            sidebar_menu: [
-                {
-                    "heading": "Analytics",
-                    "heading_can": "analytics-heading-view"
-                },
-                {
-                    "title": "Dashboard",
-                    "type": "single_link",
-                    "icon": "home",
-                    "can": "dashboard-view",
-                    "route": "/portal/dashboard"
-                },
-                {
-                    "heading": "Management",
-                    "heading_can": "management-heading-view"
-                },
-                {
-                    "title": "User Management",
-                    "can": "user-management-dropdown",
-                    "icon": "users",
-                    "type": "multi",
-                    "sub_menu": [
-                        {
-                            "title": "Users",
-                            "icon": null,
-                            "can": "users-list",
-                            "route": "/portal/users"
-                        },
-                        {
-                            "title": "Roles",
-                            "icon": null,
-                            "can": "roles-list",
-                            "route": "/portal/roles"
-                        },
-                        {
-                            "title": "Permissions",
-                            "icon": null,
-                            "can": "permissions-list",
-                            "route": "/portal/permissions"
-                        }
-                    ]
-                },
-            ],
+            sidebar_menu:menu,
             index: 0,
             loading: false,
         }
